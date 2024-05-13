@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { carsReducer } from "./slice";
+import { carsReducer } from "./cars/slice";
 import storage from "redux-persist/lib/storage";
 import {
   persistStore,
@@ -11,6 +11,7 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
+import { filterReducer } from "./filter/filterSlice";
 
 const carsPersistConfig = {
   key: "cars",
@@ -23,6 +24,7 @@ const persistedReducer = persistReducer(carsPersistConfig, carsReducer);
 export const store = configureStore({
   reducer: {
     cars: persistedReducer,
+    filter: filterReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

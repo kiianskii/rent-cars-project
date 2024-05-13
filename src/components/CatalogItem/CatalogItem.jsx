@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useToggle } from "../../hooks/useToggle";
-import { changeFavorite } from "../../redux/slice";
+import { changeFavorite } from "../../redux/cars/slice";
 import Modal from "../Modal/Modal";
 import s from "./CatalogItem.module.css";
 import Icons from "../../assets/sprite.svg";

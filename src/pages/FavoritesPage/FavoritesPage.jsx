@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { selectCars } from "../../redux/slice";
+import { selectCars } from "../../redux/cars/slice";
 import CatalogItem from "../../components/CatalogItem/CatalogItem";
 import s from "./FavoritesPage.module.css";
 
