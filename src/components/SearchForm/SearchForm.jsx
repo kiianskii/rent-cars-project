@@ -8,9 +8,9 @@ function SearchForm() {
   const dispatch = useDispatch();
 
   const [brand, setBrand] = useState("");
-  const [price, setPrice] = useState(null);
-  const [milFrom, setMilFrom] = useState(null);
-  const [milTo, setMilTo] = useState("");
+  const [price, setPrice] = useState(Infinity);
+  const [milFrom, setMilFrom] = useState(0);
+  const [milTo, setMilTo] = useState(Infinity);
 
   const priceList = [];
   for (let i = 0; i <= 500; i += 10) {
@@ -42,7 +42,7 @@ function SearchForm() {
           id="brands"
           onChange={(e) => setBrand(e.target.value)}
         >
-          <option value="">Enter brand</option>
+          <option value="1">Enter brand</option>
           {brands.map((item) => {
             return (
               <option key={item} value={item}>

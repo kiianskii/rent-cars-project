@@ -6,14 +6,12 @@ import { selectFilter } from "./filter/filterSlice";
 export const selectFilteredCars = createSelector(
   [selectCars, selectFilter],
   (cars, searchParams) => {
-    if (searchParams.brand) {
-      return cars.filter((item) => item.make.includes(searchParams.brand));
-    } else {
-      return cars;
-    }
-
-    // .filter((item) => item.rentalPrice < searchParams.price);
-    // .filter((item) => item.mileage > searchParams.milFrom)
-    // .filter((item) => item.mileage < searchParams.milTo);
+    return cars
+      .filter((item) => item.make.includes(searchParams.brand))
+      .filter(
+        (item) => parseInt(item.rentalPrice.substring(1)) < searchParams.price
+      )
+      .filter((item) => item.mileage > searchParams.milFrom)
+      .filter((item) => item.mileage < searchParams.milTo);
   }
 );

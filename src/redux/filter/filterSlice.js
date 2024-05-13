@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   brand: "",
-  price: null,
-  milFrom: null,
-  milTo: null,
+  price: Infinity,
+  milFrom: 0,
+  milTo: Infinity,
 };
 
 const sliceFilter = createSlice({
@@ -21,9 +21,9 @@ const sliceFilter = createSlice({
     },
     resetFilter: (state) => {
       state.brand = "";
-      state.price = null;
-      state.milFrom = null;
-      state.milTo = null;
+      state.price = Infinity;
+      state.milFrom = 0;
+      state.milTo = Infinity;
     },
   },
 });
