@@ -1,31 +1,36 @@
 // import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { brands } from "../../assets/brands";
-import {
-  changeMilFrom,
-  changeMilTo,
-  changeSearchBrand,
-  changeSearchPrice,
-  selectBrand,
-  selectPrice,
-} from "../../redux/filter/filterSlice";
+import { changeFilter, resetFilter } from "../../redux/filter/filterSlice";
+import { useState } from "react";
 
 function SearchForm() {
   const dispatch = useDispatch();
-  const brand = useSelector(selectBrand);
-  const currentPrice = useSelector(selectPrice);
 
-  const price = [];
+  const [brand, setBrand] = useState("");
+  const [price, setPrice] = useState(null);
+  const [milFrom, setMilFrom] = useState(null);
+  const [milTo, setMilTo] = useState("");
+
+  const priceList = [];
   for (let i = 0; i <= 500; i += 10) {
-    price.push(i);
+    priceList.push(i);
   }
 
   const onReset = () => {
-    dispatch(changeSearchBrand(""));
-    dispatch(changeSearchPrice(null));
-    dispatch(changeMilFrom(null));
-    dispatch(changeMilTo(null));
+    dispatch(resetFilter);
   };
+
+  const onSearch = () => {
+    const filter = {
+      brand,
+      price,
+      milFrom,
+      milTo,
+    };
+    dispatch(changeFilter(filter));
+  };
+
   return (
     <>
       <label>
@@ -35,7 +40,7 @@ function SearchForm() {
           value={brand}
           name="brands"
           id="brands"
-          onChange={(e) => dispatch(changeSearchBrand(e.target.value))}
+          onChange={(e) => setBrand(e.target.value)}
         >
           <option value="">Enter brand</option>
           {brands.map((item) => {
@@ -50,13 +55,13 @@ function SearchForm() {
       <label>
         <span>Price / 1 hour</span>
         <select
-          value={currentPrice}
+          value={price}
           name="price"
           id="price"
-          onChange={(e) => dispatch(changeSearchPrice(e.target.value))}
+          onChange={(e) => setPrice(e.target.value)}
         >
           <option value="">To $</option>
-          {price.map((item) => {
+          {priceList.map((item) => {
             return (
               <option key={item} value={item}>
                 {item}
@@ -71,17 +76,17 @@ function SearchForm() {
           type="number"
           name="milFrom"
           placeholder="From"
-          onChange={(e) => dispatch(changeMilFrom(e.target.value))}
+          onChange={(e) => setMilFrom(e.target.value)}
         />
         <input
           type="number"
           name="milTo"
           placeholder="To"
-          onChange={(e) => dispatch(changeMilTo(e.target.value))}
+          onChange={(e) => setMilTo(e.target.value)}
         />
       </label>
       <button onClick={() => onReset()}>Reset</button>
-      <button>Search</button>
+      <button onClick={() => onSearch()}>Search</button>
     </>
   );
 }

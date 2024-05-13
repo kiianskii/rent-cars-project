@@ -10,7 +10,7 @@ export const fetchCarsThunk = createAsyncThunk(
     if (!savedCars.length) {
       try {
         const { data } = await axios.get("cars", {
-          params: { page: 1, limit: 10 },
+          params: { page: 1, limit: 12 },
         });
         const newData = data.map((item) => {
           return { ...item, favorite: false };
