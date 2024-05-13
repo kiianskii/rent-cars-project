@@ -15,6 +15,12 @@ const slice = createSlice({
     // selectIsError: (state) => state.isError,
     // selectIsLoading: (state) => state.isLoading,
   },
+  reducers: {
+    changeFavorite: (state, { payload }) => {
+      const item = state.cars.find((item) => item.id === payload);
+      item.favorite = !item.favorite;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchCarsThunk.fulfilled, (state, { payload }) => {
       state.cars = payload;
@@ -23,4 +29,6 @@ const slice = createSlice({
 });
 
 export const carsReducer = slice.reducer;
+export const { changeFavorite } = slice.actions;
+
 export const { selectCars } = slice.selectors;
