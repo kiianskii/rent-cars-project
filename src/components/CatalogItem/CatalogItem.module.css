@@ -44,20 +44,11 @@
   top: 10px;
   right: 10px;
 }
-/* 
+
 .heart_span {
-  width: 16px;
-  height: 16px;
-  border-radius: 2px;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  fill: transparent;
-  flex-shrink: 0;
-  margin-right: 8px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
 .visually_hidden {
@@ -71,7 +62,7 @@
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
- } */
+}
 
 .label {
   color: var(--LIGHT-SLATE, #8e8f99);
@@ -85,7 +76,7 @@
   right: 1px;
 }
 
-.heart {
+/* .heart {
   fill: red;
   stroke: black;
-}
+} */

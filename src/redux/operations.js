@@ -9,7 +9,9 @@ export const fetchCarsThunk = createAsyncThunk(
     const savedCars = thunkAPI.getState().cars.cars;
     if (!savedCars.length) {
       try {
-        const { data } = await axios.get("cars");
+        const { data } = await axios.get("cars", {
+          params: { page: 1, limit: 10 },
+        });
         const newData = data.map((item) => {
           return { ...item, favorite: false };
         });
