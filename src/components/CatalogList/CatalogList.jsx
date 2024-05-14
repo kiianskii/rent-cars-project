@@ -20,7 +20,9 @@ function CatalogList() {
     changePage();
   };
 
-  return (
+  return !filteredCars.length ? (
+    <h2 className={s.empty}>No avaliable cars.</h2>
+  ) : (
     <div className={s.container}>
       <ul className={s.list}>
         {filteredCars.map((item) => {
