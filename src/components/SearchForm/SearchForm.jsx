@@ -35,8 +35,8 @@ function SearchForm() {
     const filter = {
       brand,
       price,
-      milFrom,
-      milTo,
+      milFrom: Math.abs(milFrom),
+      milTo: Math.abs(milTo),
     };
     dispatch(changeFilter(filter));
   };
