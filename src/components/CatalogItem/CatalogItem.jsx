@@ -3,8 +3,9 @@ import { useToggle } from "../../hooks/useToggle";
 import { changeFavorite } from "../../redux/cars/slice";
 import Modal from "../Modal/Modal";
 import s from "./CatalogItem.module.css";
-import Icons from "../../assets/sprite.svg";
+// import Icons from "../../assets/sprite.svg";
 import { useEffect } from "react";
+import { Icon } from "../../assets/Icon";
 
 function CatalogItem({ item }) {
   const dispatch = useDispatch();
@@ -32,7 +33,7 @@ function CatalogItem({ item }) {
     favorite,
   } = item;
 
-  const favoriteIcon = favorite ? "#icon-active" : "#icon-normal";
+  const favoriteIcon = favorite ? "active" : "normal";
   return (
     <li className={s.item}>
       <label className={s.label}>
@@ -44,9 +45,7 @@ function CatalogItem({ item }) {
           onChange={() => dispatch(changeFavorite(item.id))}
         />
         <span className={s.heart_span}>
-          <svg width={18} height={18} className={s.heart}>
-            <use href={Icons + favoriteIcon}></use>
-          </svg>
+          <Icon size={18} id={favoriteIcon} />
         </span>
       </label>
       <>
