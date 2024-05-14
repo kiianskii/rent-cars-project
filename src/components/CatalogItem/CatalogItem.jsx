@@ -49,6 +49,7 @@ function CatalogItem({ item }) {
             // <svg width={18} height={18} className={s.heart}>
             //   <use href={Icons + "#icon-active"}></use>
             // </svg>
+
             <Icon size={18} id="active" className={s.heart} />
           ) : (
             // <svg width={18} height={18} className={s.heart}>
