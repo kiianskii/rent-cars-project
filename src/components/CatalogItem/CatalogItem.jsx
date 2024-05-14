@@ -4,8 +4,9 @@ import { changeFavorite } from "../../redux/cars/slice";
 import Modal from "../Modal/Modal";
 import s from "./CatalogItem.module.css";
 import { useEffect } from "react";
-// import Icons from "../../assets/sprite.svg";
-import { Icon } from "../../../public/Icon";
+import active_logo from "../../assets/active.svg";
+import normal_logo from "../../assets/normal.svg";
+// import { Icon } from "../../../public/Icon";
 
 function CatalogItem({ item }) {
   const dispatch = useDispatch();
@@ -50,12 +51,14 @@ function CatalogItem({ item }) {
             //   <use href={Icons + "#icon-active"}></use>
             // </svg>
 
-            <Icon size={18} id="active" className={s.heart} />
+            // <Icon size={18} id="active" className={s.heart} />
+            <img src={active_logo} alt="logo" height={18} width={18} />
           ) : (
             // <svg width={18} height={18} className={s.heart}>
             //   <use href={Icons + "#icon-normal"}></use>
-            // </svg>
-            <Icon size={18} id="normal" className={s.heart} />
+            // </svg>normal_logo
+            <img src={normal_logo} alt="logotype" height={18} width={18} />
+            // <Icon size={18} id="normal" className={s.heart} />
           )}
         </span>
       </label>
