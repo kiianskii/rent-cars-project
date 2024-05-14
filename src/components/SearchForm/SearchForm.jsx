@@ -87,6 +87,7 @@ function SearchForm() {
         <div className={s.mileage_label}>
           <input
             className={s.mileage_from}
+            value={milFrom ? milFrom : " "}
             type="number"
             name="milFrom"
             placeholder="From"
@@ -94,6 +95,7 @@ function SearchForm() {
           />
           <input
             className={s.mileage_to}
+            value={milTo < Infinity ? milTo : ""}
             type="number"
             name="milTo"
             placeholder="To"
