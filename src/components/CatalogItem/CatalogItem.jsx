@@ -5,7 +5,7 @@ import Modal from "../Modal/Modal";
 import s from "./CatalogItem.module.css";
 import Icons from "../../assets/sprite.svg";
 import { useEffect } from "react";
-// import { Icon } from "../../assets/Icon";
+import { Icon } from "../../assets/Icon";
 
 function CatalogItem({ item }) {
   const dispatch = useDispatch();
@@ -33,6 +33,7 @@ function CatalogItem({ item }) {
     favorite,
   } = item;
 
+  // const favoriteIcon = favorite ? "#icon-active" : "#icon-normal";
   return (
     <li className={s.item}>
       <label className={s.label}>
@@ -45,13 +46,15 @@ function CatalogItem({ item }) {
         />
         <span className={s.heart_span}>
           {favorite ? (
-            <svg width={18} height={18} className={s.heart}>
-              <use href={Icons + "#icon-active"}></use>
-            </svg>
+            // <svg width={18} height={18} className={s.heart}>
+            //   <use href={Icons + "#icon-active"}></use>
+            // </svg>
+            <Icon size={18} id="active" className={s.heart} />
           ) : (
-            <svg width={18} height={18} className={s.heart}>
-              <use href={Icons + "#icon-normal"}></use>
-            </svg>
+            // <svg width={18} height={18} className={s.heart}>
+            //   <use href={Icons + "#icon-normal"}></use>
+            // </svg>
+            <Icon size={18} id="normal" className={s.heart} />
           )}
         </span>
       </label>
