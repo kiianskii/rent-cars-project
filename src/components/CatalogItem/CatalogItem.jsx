@@ -33,7 +33,6 @@ function CatalogItem({ item }) {
     favorite,
   } = item;
 
-  const favoriteIcon = favorite ? "#icon-active" : "#icon-normal";
   return (
     <li className={s.item}>
       <label className={s.label}>
@@ -45,9 +44,15 @@ function CatalogItem({ item }) {
           onChange={() => dispatch(changeFavorite(item.id))}
         />
         <span className={s.heart_span}>
-          <svg width={18} height={18} className={s.heart}>
-            <use href={Icons + favoriteIcon}></use>
-          </svg>
+          {favorite ? (
+            <svg width={18} height={18} className={s.heart}>
+              <use href={Icons + "#icon-active"}></use>
+            </svg>
+          ) : (
+            <svg width={18} height={18} className={s.heart}>
+              <use href={Icons + "#icon-normal"}></use>
+            </svg>
+          )}
         </span>
       </label>
       <>
