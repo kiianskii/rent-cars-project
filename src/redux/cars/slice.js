@@ -24,7 +24,9 @@ const slice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchCarsThunk.fulfilled, (state, { payload }) => {
-      state.cars = payload;
+      if (!state.cars.length) {
+        state.cars = payload;
+      }
       state.page = 1;
     });
   },

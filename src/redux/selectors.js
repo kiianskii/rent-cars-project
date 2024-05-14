@@ -7,7 +7,7 @@ export const selectFilteredCars = createSelector(
   [selectCars, selectFilter],
   (cars, searchParams) => {
     return cars
-      .filter((item) => item.make.includes(searchParams.brand))
+      ?.filter((item) => item.make.includes(searchParams.brand))
       .filter(
         (item) => parseInt(item.rentalPrice.substring(1)) < searchParams.price
       )

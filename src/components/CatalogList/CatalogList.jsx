@@ -14,9 +14,7 @@ function CatalogList() {
     dispatch(fetchCarsThunk());
   }, [dispatch]);
 
-  return !filteredCars.length ? (
-    <h2 className={s.empty}>No avaliable cars.</h2>
-  ) : (
+  return filteredCars?.length ? (
     <div className={s.container}>
       <ul className={s.list}>
         {filteredCars.map((item) => {
@@ -24,6 +22,8 @@ function CatalogList() {
         })}
       </ul>
     </div>
+  ) : (
+    <h2 className={s.empty}>No avaliable cars.</h2>
   );
 }
 

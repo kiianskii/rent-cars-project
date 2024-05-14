@@ -6,9 +6,9 @@ import s from "./FavoritesPage.module.css";
 function FavoritesPage() {
   const cars = useSelector(selectCars);
   const favoriteCars = cars.filter((item) => item.favorite);
-  return favoriteCars.length ? (
+  return favoriteCars?.length ? (
     <ul className={s.list}>
-      {favoriteCars.map((item) => {
+      {favoriteCars?.map((item) => {
         return <CatalogItem key={item.id} item={item} />;
       })}
     </ul>
