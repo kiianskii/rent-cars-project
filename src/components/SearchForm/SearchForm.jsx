@@ -1,8 +1,8 @@
-// import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { brands } from "../../assets/brands";
-import { changeFilter, resetFilter } from "../../redux/filter/filterSlice";
+import { changeFilter } from "../../redux/filter/filterSlice";
 import { useState } from "react";
+import s from "./SearchForm.module.css";
 
 function SearchForm() {
   const dispatch = useDispatch();
@@ -18,7 +18,14 @@ function SearchForm() {
   }
 
   const onReset = () => {
-    dispatch(resetFilter);
+    // dispatch(resetFilter);
+    const filter = {
+      brand: "",
+      price: Infinity,
+      milFrom: 0,
+      milTo: Infinity,
+    };
+    dispatch(changeFilter(filter));
   };
 
   const onSearch = () => {
@@ -32,11 +39,12 @@ function SearchForm() {
   };
 
   return (
-    <>
-      <label>
+    <div className={s.wrapper}>
+      <label className={s.label}>
         <span>Car brand</span>
 
         <select
+          className={s.brand_select}
           value={brand}
           name="brands"
           id="brands"
@@ -52,9 +60,10 @@ function SearchForm() {
           })}
         </select>
       </label>
-      <label>
+      <label className={s.label}>
         <span>Price / 1 hour</span>
         <select
+          className={s.price_select}
           value={price}
           name="price"
           id="price"
@@ -70,24 +79,37 @@ function SearchForm() {
           })}
         </select>
       </label>
-      <label>
+      <label className={s.label}>
         <span>Car mileage / km</span>
-        <input
-          type="number"
-          name="milFrom"
-          placeholder="From"
-          onChange={(e) => setMilFrom(e.target.value)}
-        />
-        <input
-          type="number"
-          name="milTo"
-          placeholder="To"
-          onChange={(e) => setMilTo(e.target.value)}
-        />
+        <div className={s.mileage_label}>
+          <input
+            className={s.mileage_from}
+            type="number"
+            name="milFrom"
+            placeholder="From"
+            onChange={(e) => setMilFrom(e.target.value)}
+          />
+          <input
+            className={s.mileage_to}
+            type="number"
+            name="milTo"
+            placeholder="To"
+            onChange={(e) => setMilTo(e.target.value)}
+          />
+        </div>
       </label>
-      <button onClick={() => onReset()}>Reset</button>
-      <button onClick={() => onSearch()}>Search</button>
-    </>
+      <label>
+        <span className={s.invisible}>Car mileage / km</span>
+        <div className={s.btn_wrapper}>
+          <button className={s.btn} onClick={() => onReset()}>
+            Reset
+          </button>
+          <button className={s.btn} onClick={() => onSearch()}>
+            Search
+          </button>
+        </div>
+      </label>
+    </div>
   );
 }
 

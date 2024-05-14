@@ -19,15 +19,9 @@ const sliceFilter = createSlice({
       state.milFrom = payload.milFrom;
       state.milTo = payload.milTo;
     },
-    resetFilter: (state) => {
-      state.brand = "";
-      state.price = Infinity;
-      state.milFrom = 0;
-      state.milTo = Infinity;
-    },
   },
 });
 
 export const filterReducer = sliceFilter.reducer;
-export const { changeFilter, resetFilter } = sliceFilter.actions;
+export const { changeFilter } = sliceFilter.actions;
 export const { selectFilter } = sliceFilter.selectors;

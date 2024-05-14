@@ -4,9 +4,19 @@ import { changeFavorite } from "../../redux/cars/slice";
 import Modal from "../Modal/Modal";
 import s from "./CatalogItem.module.css";
 import Icons from "../../assets/sprite.svg";
+import { useEffect } from "react";
 
 function CatalogItem({ item }) {
   const dispatch = useDispatch();
+  const { openModal, closeModal, isOpen } = useToggle();
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [isOpen]);
 
   const {
     img,
@@ -21,8 +31,6 @@ function CatalogItem({ item }) {
     functionalities,
     favorite,
   } = item;
-
-  const { openModal, closeModal, isOpen } = useToggle();
 
   const favoriteIcon = favorite ? "#icon-active" : "#icon-normal";
   return (

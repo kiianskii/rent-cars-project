@@ -1,0 +1,38 @@
+.container {
+  width: 1160px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+.header {
+  text-align: center;
+  text-shadow: 3px 3px 5px #6f6f6f;
+  font-size: 36px;
+  font-weight: 900;
+}
+.text {
+  text-align: center;
+  text-shadow: 3px 3px 5px #6f6f6f;
+}
+
+.left {
+  height: 400px;
+  width: 600px;
+  background-image: url(../../assets/left.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.right {
+  height: 300px;
+  width: 400px;
+  background-image: url(../../assets/right.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}

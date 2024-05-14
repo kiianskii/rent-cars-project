@@ -1,0 +1,120 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0 20px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  color: #8a8a89;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.brand_select {
+  display: flex;
+  padding: 14px 89px 14px 18px;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  border-radius: 14px;
+  background: #f7f7fb;
+  color: #121417;
+  font-family: Manrope;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 111.111% */
+}
+
+.price_select {
+  display: flex;
+  width: 125px;
+  padding: 14px 18px;
+  align-items: flex-start;
+  gap: 32px;
+  border-radius: 14px;
+  background: #f7f7fb;
+  color: #121417;
+  font-family: Manrope;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 111.111% */
+}
+.mileage_label {
+  display: flex;
+  gap: 0;
+}
+
+.mileage_from {
+  display: flex;
+  width: 100px;
+  height: 48px;
+  padding: 2.25px 53px 2.25px 24px;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 14px 0px 0px 14px;
+  border: 1px #8a8a89 solid;
+  border-right: 1px solid rgba(138, 138, 137, 0.2);
+
+  background: #f7f7fb;
+  color: #121417;
+  font-family: Manrope;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 111.111% */
+}
+.mileage_to {
+  display: flex;
+  width: 100px;
+  height: 48px;
+  padding: 2.25px 85px 2.25px 24px;
+  align-items: center;
+  flex-shrink: 0;
+  border: 1px #8a8a89 solid;
+
+  border-radius: 0px 14px 14px 0px;
+  background: #f7f7fb;
+  color: #121417;
+  font-family: Manrope;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 111.111% */
+}
+
+.btn {
+  display: flex;
+  padding: 14px 44px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  background: #3470ff;
+  border: none;
+  height: 52.5px;
+  color: var(--White, #fff);
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px; /* 142.857% */
+}
+.btn_wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: start;
+  gap: 8px;
+}
+
+.invisible {
+  color: transparent;
+}

@@ -3,8 +3,7 @@ import { fetchCarsThunk } from "./operations";
 
 const initialState = {
   cars: [],
-  //   isLoading: false,
-  //   isError: false,
+  page: 1,
 };
 
 const slice = createSlice({
@@ -12,23 +11,26 @@ const slice = createSlice({
   initialState,
   selectors: {
     selectCars: (state) => state.cars,
-    // selectIsError: (state) => state.isError,
-    // selectIsLoading: (state) => state.isLoading,
+    selectPage: (state) => state.page,
   },
   reducers: {
     changeFavorite: (state, { payload }) => {
       const item = state.cars.find((item) => item.id === payload);
       item.favorite = !item.favorite;
     },
+    changePage: (state) => {
+      state.page += 1;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchCarsThunk.fulfilled, (state, { payload }) => {
       state.cars = payload;
+      state.page = 1;
     });
   },
 });
 
 export const carsReducer = slice.reducer;
-export const { changeFavorite } = slice.actions;
+export const { changeFavorite, changePage } = slice.actions;
 
-export const { selectCars } = slice.selectors;
+export const { selectCars, selectPage } = slice.selectors;

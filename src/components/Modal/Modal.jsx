@@ -52,31 +52,38 @@ const Modal = ({ item, closeModal }) => {
         <button onClick={closeModal} className={s.closeBtn}>
           X
         </button>
-        <img className={s.img} src={img} alt={model} width="461" height="248" />
+        <img className={s.img} src={img} alt={model} />
         <div className={s.top_wrapper}>
           <div className={s.title_wrapper}>
-            <h3>
+            <h2 className={s.title}>
               {make} {model}, {year}
-            </h3>
-            <p>{rentalPrice}</p>
+            </h2>
           </div>
-          <p>
+          <p className={s.title_descr}>
             {address} | Id: {id} | Year: {year} | Type: {type} | Fuel
             consumption: {fuelConsumption} | Engine Size: {engineSize}
           </p>
-          <p>{description}</p>
+          <h3 className={s.small_title}>{description}</h3>
         </div>
         <div>
-          <h3>Accessories and functionalities:</h3>
-          <p>
+          <h3 className={s.small_title}>Accessories and functionalities:</h3>
+          <p className={s.title_descr}>
             {functionalities.join(" | ")} | {accessories.join(" | ")}
           </p>
         </div>
         <div>
-          <h3>Rental Conditions:</h3>
-          <p>
-            {rentalConditions.split("/n")} Mileage: {mileage} Price:
-            {rentalPrice}
+          <h3 className={s.small_title}>Rental Conditions:</h3>
+          <p className={s.cond_wrapper}>
+            {rentalConditions.split("\n").map((item) => {
+              return (
+                <span className={s.conditions} key={item}>
+                  {item}
+                </span>
+              );
+            })}
+
+            <span className={s.conditions}>Mileage: {mileage}</span>
+            <span className={s.conditions}>Price: {rentalPrice}</span>
           </p>
         </div>
         <a href="tel:+380730000000" className={s.btn}>
