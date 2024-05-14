@@ -45,7 +45,7 @@ function CatalogItem({ item }) {
           onChange={() => dispatch(changeFavorite(item.id))}
         />
         <span className={s.heart_span}>
-          <Icon size={18} id={favoriteIcon} />
+          <Icon size={18} id={favoriteIcon} className={s.heart} />
         </span>
       </label>
       <>
