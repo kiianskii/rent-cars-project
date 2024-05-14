@@ -18,7 +18,10 @@ function SearchForm() {
   }
 
   const onReset = () => {
-    // dispatch(resetFilter);
+    setBrand("");
+    setPrice(Infinity);
+    setMilFrom(0);
+    setMilTo(Infinity);
     const filter = {
       brand: "",
       price: Infinity,

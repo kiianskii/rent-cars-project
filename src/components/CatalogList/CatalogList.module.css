@@ -18,8 +18,13 @@
   border-radius: 12px;
   border: transparent;
   background: #1253ec;
+  transition: all 300ms ease-in-out;
+  cursor: pointer;
 }
 
+.load_btn:hover {
+  background: #0b44cd;
+}
 .container {
   display: flex;
   align-items: center;

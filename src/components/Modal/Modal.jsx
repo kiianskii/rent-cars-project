@@ -10,7 +10,6 @@ const Modal = ({ item, closeModal }) => {
     year,
     rentalPrice,
     address,
-
     type,
     mileage,
     functionalities,
@@ -22,7 +21,8 @@ const Modal = ({ item, closeModal }) => {
     rentalConditions,
   } = item;
 
-  console.log(rentalConditions.split("\n"));
+  const newMileage = mileage.toLocaleString("en-US");
+
   const handleKeyDown = useCallback(
     (e) => {
       if (e.key === "Escape") {
@@ -81,8 +81,7 @@ const Modal = ({ item, closeModal }) => {
                 </span>
               );
             })}
-
-            <span className={s.conditions}>Mileage: {mileage}</span>
+            <span className={s.conditions}>Mileage: {newMileage}</span>
             <span className={s.conditions}>Price: {rentalPrice}</span>
           </p>
         </div>

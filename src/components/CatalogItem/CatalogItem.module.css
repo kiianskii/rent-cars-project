@@ -33,6 +33,7 @@
   border: transparent;
   background: #3470ff;
   transition: all ease-in 250ms;
+  cursor: pointer;
 }
 
 .btn:hover {
@@ -75,8 +76,3 @@
   top: 1px;
   right: 1px;
 }
-
-/* .heart {
-  fill: red;
-  stroke: black;
-} */
